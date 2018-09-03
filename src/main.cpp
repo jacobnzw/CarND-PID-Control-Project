@@ -35,10 +35,10 @@ int main()
 {
   uWS::Hub h;
 
-  PID pid;
-  double Kp = 0.0001;
-  double Ki = 0.00001;
-  double Kd = 0.05;
+  PID pid; // BEST (SO FAR): 2e-1, -1e-4, 1.55
+  double Kp = 2e-1;
+  double Ki = -0.0001;
+  double Kd = 1.55;
   pid.Init(Kp, Ki, Kd);
 
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
